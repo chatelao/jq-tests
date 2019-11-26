@@ -15,11 +15,18 @@ script:
   - echo '{"hello":"test","world":"test too"}' | jq .
   - echo '{"anarr":[{"hello":"test"},{"world":"test too"}]}' | jq .
   - jq . hello.json
+
+  # Load vs. Slurp two files
   - jq . hello.json world.json
   - jq . -s hello.json world.json
   - jq -s '.[0]' hello.json world.json
   - jq -s '.[1]' hello.json world.json
+  
+  # Try combine & merge
   - echo '[{"latin":{"de":"true"}},{"latin":{"fr":"true"}}]' | jq 'reduce .[] as $item ({}; . + $item)'
   - echo '[{"latin":{"de":"true"}},{"latin":{"fr":"true"}}]' | jq 'reduce .[] as $item ({}; . * $item)'
+  
   - jq -s 'reduce .[] as $item ({}; . + $item)' hello.json world.json
   - jq -s 'reduce .[] as $item ({}; . * $item)' hello.json world.json
+  
+  - mustache hello.json hello.mustache
