@@ -22,3 +22,4 @@ script:
   - echo '[{"latin":{"de":"true"}},{"latin":{"fr":"true"}}]' | jq 'reduce .[] as $item ({}; . + $item)'
   - echo '[{"latin":{"de":"true"}},{"latin":{"fr":"true"}}]' | jq 'reduce .[] as $item ({}; . * $item)'
   - jq -s 'reduce .[] as $item ({}; . + $item)' hello.json world.json
+  - jq -s 'reduce .[] as $item ({}; . * $item)' hello.json world.json
