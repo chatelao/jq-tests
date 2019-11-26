@@ -1,1 +1,9 @@
-{ "latin" : [ "de" : { "rules": [ { "search":"x", "replace":"y" } ] } ] }
+{ "latin" :
+   [ { "de" :
+      { "rules": 
+          [ { "search":"x"
+            , "replace":"y" }
+          ]
+      }
+     } ]
+}
