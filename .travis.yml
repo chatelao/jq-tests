@@ -17,3 +17,5 @@ script:
   - jq . hello.json
   - jq . hello.json world.json
   - jq . -s hello.json world.json
+  - jq -s '.[0]' hello.json world.json
+  - jq -s 'reduce .[] as $item ({}; . * $item)' hello.json world.json
