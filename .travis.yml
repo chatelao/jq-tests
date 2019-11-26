@@ -18,5 +18,6 @@ script:
   - jq . hello.json world.json
   - jq . -s hello.json world.json
   - jq -s '.[0]' hello.json world.json
-  - jq -s 'reduce .[] as $item ({}; . * $item)' hello.json world.json
+  - jq -s '.[1]' hello.json world.json
+  - jq -s 'reduce .[] as $item ({}; . + $item)' hello.json world.json
   - jq -n 'inputs | {"object": . , "filename": input_filename, "lineNumber": input_line_number}' *.json | jq -ns 'inputs'
