@@ -16,4 +16,4 @@ before_install:
   - npm install -g mustache
 
 script:
-  - jq '{ "hello","world"}'
+  - echo '{"hello","world"}' | jq .
