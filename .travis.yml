@@ -29,4 +29,6 @@ script:
   - jq -s 'reduce .[] as $item ({}; . + $item)' hello.json world.json
   - jq -s 'reduce .[] as $item ({}; . * $item)' hello.json world.json
   
+  - jq -s 'reduce .[][] as $item ([] ; . + $item)' hello.json world.json
+  
   - mustache hello.json hello.mustache
