@@ -13,7 +13,6 @@ before_install:
 
 script:
   - echo '{"hello":"test","world":"test too"}' | jq .
-  - echo '{["hello":"test","world":"test too"]}' | jq .
-  - echo '{[{"hello":"test"},{"world":"test too"}]}' | jq .
+  - echo '{"anarr":[{"hello":"test"},{"world":"test too"}]}' | jq .
   - echo '{[{"hello":"test"},{"world":"test too"}]}' | jq .[0] .[1]
   
