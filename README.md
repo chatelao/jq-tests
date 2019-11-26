@@ -1,6 +1,6 @@
 # jq-tests
 
-The **jq-test** contains working samples for the **jq** tool. It is my way to discover it's capabilities.
+The **jq-test** contains working samples for the **jq** tool.
 
 ## More Sources
 * The *jq* manual: https://stedolan.github.io/jq/manual/
