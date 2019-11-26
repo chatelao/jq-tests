@@ -17,3 +17,8 @@ before_install:
 
 script:
   - echo '{"hello","world"}' | jq .
+  - echo '{"hello":"test","world":"test too"}' | jq .
+  - echo '{["hello":"test","world":"test too"]}' | jq .
+  - echo '{[{"hello":"test"},{"world":"test too"}]}' | jq .
+  - echo '{[{"hello":"test"},{"world":"test too"}]}' | jq .[0] .[1]
+  
