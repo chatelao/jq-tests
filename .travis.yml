@@ -1,0 +1,19 @@
+dist: bionic
+
+addons:
+  postgresql: '10'
+  apt:
+    update: true  
+    packages:
+    - devscripts
+    - equivs
+    - pandoc
+    # - postgresql-10-postgis-2.4
+    - jq
+
+before_install:
+  - npm install -g csvtojson
+  - npm install -g mustache
+
+script:
+  - jq '{ "hello","world"}'
