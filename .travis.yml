@@ -15,3 +15,5 @@ script:
   - echo '{"hello":"test","world":"test too"}' | jq .
   - echo '{"anarr":[{"hello":"test"},{"world":"test too"}]}' | jq .
   - jq . hello.json
+  - jq . hello.json world.json
+  - jq . -s hello.json world.json
