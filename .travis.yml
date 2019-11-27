@@ -15,6 +15,9 @@ script:
   - echo '{"hello":"test","world":"test too"}' | jq .
   - echo '{"anarr":[{"hello":"test"},{"world":"test too"}]}' | jq .
   - jq . hello.json
+  
+  # add a field
+  - echo '{}' | jq '.[] | .gugus= "dada"'
 
   # Load vs. Slurp two files
   - jq . hello.json world.json
