@@ -41,4 +41,4 @@ script:
   - jq -s 'reduce .[] as $item ({}; . * $item)' hello.json world.json
   
   - jq -s 'reduce .[][] as $item ([] ; . + $item)' hello.json world.json
-  - jq -s 'reduce .[][] as $item ([] ; . + {"latin" : $item } )' hello.json world.json
+  - jq -s 'reduce .[][] as $item ([] ; . + { latin : $item } )' hello.json world.json
