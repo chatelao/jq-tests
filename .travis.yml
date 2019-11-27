@@ -12,16 +12,24 @@ before_install:
   - npm install -g mustache
 
 script:
-  - echo '{"hello":"test","world":"test too"}' | jq .
-  - echo '{"anarr":[{"hello":"test"},{"world":"test too"}]}' | jq .
+
+  # pretty print 1:1 from pipe
+  - echo '{"hello":"test", "world":"it"}' | jq .
+
+  # pretty print 1:1 from file
   - jq . hello.json
   
   # add a field
   - echo '{}' | jq '.[] | .gugus= "dada"'
 
-  # Load vs. Slurp two files
+  # filter a field
+  - echo '{"hello":"test", "world":"it"}' | jq .hello
+
+  # Load two files
   - jq . hello.json world.json
-  - jq . -s hello.json world.json
+
+  # Slurp two files to an array
+  - jq . -s hello.json world.json  
   - jq -s '.[0]' hello.json world.json
   - jq -s '.[1]' hello.json world.json
   
@@ -33,5 +41,3 @@ script:
   - jq -s 'reduce .[] as $item ({}; . * $item)' hello.json world.json
   
   - jq -s 'reduce .[][] as $item ([] ; . + $item)' hello.json world.json
-  
-  - mustache hello.json hello.mustache
