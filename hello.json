@@ -1,6 +1,6 @@
 { "latin" :
-   [ { "de" :
-       [ 
+   [ { "lang": "de",
+       "rules": [ 
          { "search":"x"
          , "replace":"y" }
        ,
