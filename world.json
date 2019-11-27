@@ -1,5 +1,6 @@
 { "latin" :
-   [ { "en" :
+   [ { "lang": "en",
+       "rules":
        [ 
          { "search":"x"
          , "replace":"y" }
